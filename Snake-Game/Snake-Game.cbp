@@ -32,7 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="constants.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="playfield.cpp" />
+		<Unit filename="playfield.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

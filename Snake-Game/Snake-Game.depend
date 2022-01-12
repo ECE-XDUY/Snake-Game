@@ -1,15 +1,24 @@
 # depslib dependency file v1.0
-1641457998 source:c:\users\admin\documents\ooprogramming\codeblocks\snake game\snake-game\snake-game\main.cpp
+1641998823 source:c:\users\admin\documents\ooprogramming\codeblocks\snake game\snake-game\snake-game\main.cpp
 	<iostream>
 	<cstdio>
 	"playfield.h"
 
 1641456774 c:\users\admin\documents\ooprogramming\codeblocks\snake game\snake-game\snake-game\playfield.h
 
-1641458169 source:c:\users\admin\documents\ooprogramming\codeblocks\snake game\snake-game\snake-game\playfield.cpp
+1641998879 source:c:\users\admin\documents\ooprogramming\codeblocks\snake game\snake-game\snake-game\playfield.cpp
 	<iostream>
 	"playfield.h"
 	"constants.h"
 
-1641458195 c:\users\admin\documents\ooprogramming\codeblocks\snake game\snake-game\snake-game\constants.h
+1641998848 c:\users\admin\documents\ooprogramming\codeblocks\snake game\snake-game\snake-game\constants.h
+
+1641998600 source:c:\users\admin\documents\ooprogramming\codeblocks\snake game\snake-game\snake-game\input.cpp
+	<iostream>
+	"input.h"
+	"variables.h"
+
+1641998167 c:\users\admin\documents\ooprogramming\codeblocks\snake game\snake-game\snake-game\input.h
+
+1641998830 c:\users\admin\documents\ooprogramming\codeblocks\snake game\snake-game\snake-game\variables.h
 

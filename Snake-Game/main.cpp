@@ -28,7 +28,7 @@ int main()
     input();
     logic();
 
-    Sleep(10);
+//    Sleep(10);
     }
 
     return 0;
@@ -77,28 +77,45 @@ void input()
 
 void draw(){
      system("cls");
-     for (int i = 0; i < height; i++){
+     for (int i = 0; i < width; i++)
+        cout << "=";
+     cout << "\n";
 
-     if (i == 0 || i == height - 1)
-    {
+     for (int i = 0; i < height; i++)
+     {
         for (int j = 0; j < width; j++)
-           cout << "=";
-        cout << "\n";
-    }
-     else
-    {
-        cout << "#";
-        for (int j = 0; j < width - 2; j++)
         {
-           if (i == y && j == x)
+            if (j == 0)
+              cout << "#";
+            if (i == y && j == x)
               cout << "O";
-           else if (i == fruitY && j == fruitX)
+            else if (i == fruitY && j == fruitX)
               cout << "F";
-              else cout << " ";
+            else
+              {
+                  bool print = false;
+                  for (int k = 0; k < nTail; k++)
+                  {
+
+                      if (tailX[k] == j && tailY[k] == i)
+                      {
+                          cout << "o";
+                          print = true;
+                      }
+                  }
+                  if (!print)
+                    cout << " ";
+              }
+            if (j == width - 1)
+                cout << "#";
         }
-        cout << "#\n";
-    }
-  }
+        cout << "\n";
+     }
+
+     for (int i = 0; i < width; i++)
+        cout << "=";
+     cout << "\n";
+
   cout << "Score: " << score << "\n";
 }
 
@@ -107,6 +124,8 @@ void logic()
    int prevX = tailX[0];
    int prevY = tailY[0];
    int prev2X, prev2Y;
+   tailX[0] = x;
+   tailY[0] = y;
    for (int i = 1; i < nTail; i++)
    {
        prev2X = tailX[i];
@@ -134,4 +153,14 @@ void logic()
       y++;
       break;
    }
+   if (x > width || x < 0 || y > height || y < 0)
+     gameOver = true;
+   if (x == fruitX && y == fruitY)
+   {
+     score += 10;
+     fruitX = rand() % width;
+     fruitY = rand() % height;
+     nTail++;
+   }
+
 }

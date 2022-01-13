@@ -13,6 +13,8 @@ eDirection dir;
 int tailX[100], tailY[100];
 int nTail;
 
+char head, tail;
+
 void input();
 void draw();
 void logic();
@@ -21,6 +23,14 @@ void setup();
 //============ main program =============
 int main()
 {
+    cout << "Welcome to Snake Game!\n";
+    cout << "Please customize your snake\n";
+
+    cout << "Snake head: "; cin >> head;
+    cout << "Snake tail: "; cin >> tail;
+
+    system("cls");
+
     setup();
     while (!gameOver)
     {
@@ -53,18 +63,30 @@ void input()
       switch (_getch())
       {
       case 'a':
+         if (dir == LEFT || dir == RIGHT)
+         {}
+         else
          dir = LEFT;
          break;
 
       case 'd':
+         if (dir == LEFT || dir == RIGHT)
+         {}
+         else
          dir = RIGHT;
          break;
 
       case 'w':
+         if (dir == UP || dir == DOWN)
+         {}
+         else
          dir = UP;
          break;
 
       case 's':
+         if (dir == UP || dir == DOWN)
+         {}
+         else
          dir = DOWN;
          break;
 
@@ -88,7 +110,7 @@ void draw(){
             if (j == 0)
               cout << "#";
             if (i == y && j == x)
-              cout << "O";
+              cout << head;
             else if (i == fruitY && j == fruitX)
               cout << "F";
             else
@@ -99,7 +121,7 @@ void draw(){
 
                       if (tailX[k] == j && tailY[k] == i)
                       {
-                          cout << "o";
+                          cout << tail;
                           print = true;
                       }
                   }

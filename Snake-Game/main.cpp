@@ -2,6 +2,9 @@
 #include <cstdio>
 #include <conio.h>
 #include <windows.h>
+#include <fstream>
+using std::ifstream;
+#include <cstdlib>
 using namespace std;
 
 bool gameOver;
@@ -13,17 +16,20 @@ eDirection dir;
 int tailX[100], tailY[100];
 int nTail;
 
-char head, tail;
+char head, tail, name[50];
 
 void input();
 void draw();
 void logic();
 void setup();
+void saveScore();
+void showScore();
 
 //============ main program =============
 int main()
 {
     cout << "Welcome to Snake Game!\n";
+    cout << "Please enter your name\n"; cin >> name;
     cout << "Please customize your snake\n";
 
     cout << "Snake head: "; cin >> head;
@@ -40,6 +46,11 @@ int main()
 
     Sleep(10);
     }
+
+    cout << "\nGAME OVER\n";
+    cout << "\nHIGHSCORES\n";
+    saveScore();
+    showScore();
 
     return 0;
 }
@@ -190,4 +201,35 @@ void logic()
      nTail++;
    }
 
+}
+
+void saveScore()
+{
+  ofstream indata;
+  indata.open("highscore.txt", ios::out | ios::app);
+  if(!indata) {
+       cerr << "Error: highscore.txt can't be opened" << "\n";
+       exit(1);
+    }
+  indata << name << " " << score << "\n";
+  indata.close();
+}
+
+void showScore()
+{
+  ifstream indata;
+    string line;
+    indata.open("highscore.txt");
+    if(!indata) {
+       cerr << "Error: highscore.txt can't be opened" << "\n";
+       exit(1);
+    }
+    if (indata.is_open())
+  {
+    while (std::getline(indata, line))
+    {
+      cout << line << "\n";
+    }
+    indata.close();
+  }
 }

@@ -28,7 +28,7 @@ int main()
     input();
     logic();
 
-//    Sleep(10);
+    Sleep(10);
     }
 
     return 0;
@@ -77,8 +77,8 @@ void input()
 
 void draw(){
      system("cls");
-     for (int i = 0; i < width; i++)
-        cout << "=";
+     for (int i = 0; i < width+2; i++)
+        cout << "#";
      cout << "\n";
 
      for (int i = 0; i < height; i++)
@@ -112,8 +112,8 @@ void draw(){
         cout << "\n";
      }
 
-     for (int i = 0; i < width; i++)
-        cout << "=";
+     for (int i = 0; i < width+2; i++)
+        cout << "#";
      cout << "\n";
 
   cout << "Score: " << score << "\n";
@@ -153,8 +153,13 @@ void logic()
       y++;
       break;
    }
-   if (x > width || x < 0 || y > height || y < 0)
+   if (x == width || x == 0 || y == height || y == 0)
      gameOver = true;
+
+   for (int i = 0; i < nTail; i++)
+      if (tailX[i] == x && tailY[i] == y)
+          gameOver = true;
+
    if (x == fruitX && y == fruitY)
    {
      score += 10;

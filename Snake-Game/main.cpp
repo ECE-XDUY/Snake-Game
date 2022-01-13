@@ -52,6 +52,7 @@ int main()
     saveScore();
     showScore();
 
+    system("pause");
     return 0;
 }
 
